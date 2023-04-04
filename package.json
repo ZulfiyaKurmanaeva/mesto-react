@@ -37,8 +37,8 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://zulfiyakurmanaeva.github.io/mesto-react/index.html",
   "devDependencies": {
-    "homepage": "https://zulfiyakurmanaeva.github.io/mesto-react/",
     "gh-pages": "^5.0.0"
   }
 }
