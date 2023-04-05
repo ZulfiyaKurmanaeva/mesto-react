@@ -1,5 +1,5 @@
-import Card from './Card.js'
-import api from '../utils/Api.js'
+import Card from './Card.js';
+import api from '../utils/Api.js';
 import { useEffect, useState } from 'react';
 
 
@@ -46,7 +46,9 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
                 {cards.map((card) => (
                     <Card
                         key={card.cardId}
-                        card={card}
+                        name={card.name}
+                        link={card.link}
+                        likes={card.likes}
                         onCardClick={onCardClick}
                     />
                 ))}
