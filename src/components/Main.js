@@ -1,6 +1,6 @@
 import Card from './Card.js'
 import api from '../utils/Api.js'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
@@ -18,12 +18,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
             .catch((err) => console.log(err))
 
         api.getInitialCards().then((cardsData) => {
-            setCards(cardsData.map((data) => ({
-                cardId: data._id,
-                name: data.name,
-                link: data.link,
-                likes: data.likes
-            })))
+            setCards(cardsData)
         })
             .catch((err) => console.log(err))
     }, []);
@@ -51,9 +46,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
                 {cards.map((card) => (
                     <Card
                         key={card.cardId}
-                        name={card.name}
-                        link={card.link}
-                        likes={card.likes}
+                        card={card}
                         onCardClick={onCardClick}
                     />
                 ))}

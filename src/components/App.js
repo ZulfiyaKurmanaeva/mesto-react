@@ -19,8 +19,7 @@ function App() {
   }
 
   return (
-    <body class="page">
-      <div class="page__container">
+      <div className="page__container">
         <Header />
         <Main
           onEditProfile={setIsEditProfilePopupOpen}
@@ -33,8 +32,7 @@ function App() {
           name="avatar"
           title="Обновить аватар"
           isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          buttonText="Сохранить">
+          onClose={closeAllPopups}>
           <input
             name="avatar"
             className="popup__input"
@@ -49,8 +47,7 @@ function App() {
           name="profile"
           title="Редактировать профиль"
           isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          buttonText="Сохранить">
+          onClose={closeAllPopups}>
           <input
             name="name"
             className="popup__input"
@@ -103,8 +100,7 @@ function App() {
           buttonText="Да">
         </PopupWithForm>
       </div>
-    </body >
-  );
+   );
 }
 
 export default App;
