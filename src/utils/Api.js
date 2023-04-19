@@ -21,7 +21,7 @@ class Api {
         })
     }
 
-    addNewCard(data) {
+    setCard(data) {
         return this._request(`${this._url}/cards`, {
             method: 'POST',
             headers: this._headers,
@@ -32,30 +32,23 @@ class Api {
         })
     }
 
-    deleteCard(cardId) {
-        return this._request(`${this._url}/cards/${cardId}`, {
+    deleteCard(id) {
+        return this._request(`${this._url}/cards/${id}`, {
             method: 'DELETE',
             headers: this._headers,
         })
     }
 
-    setLike(cardId) {
-        return this._request(`${this._url}/cards/${cardId}/likes`, {
-            method: 'PUT',
+
+    changeLikeCardStatus(id, isLiked) {
+        return this._request(`${this._url}/cards/${id}/likes`, {
+            method: isLiked ? 'PUT' : 'DELETE',
             headers: this._headers,
         })
     }
 
-
-    deleteLike(cardId) {
-        return this._request(`${this._url}/cards/${cardId}/likes`, {
-            method: 'DELETE',
-            headers: this._headers,
-        })
-    }
-
-    handleLikesCounting(request, cardId) {
-        return this._request(`${this._url}/cards/${cardId}/likes`, {
+    handleLikesCounting(request, id) {
+        return this._request(`${this._url}/cards/${id}/likes`, {
             method: request,
             headers: this._headers,
         })
@@ -78,9 +71,7 @@ class Api {
         })
     }
 
-
-
-    updateAvatar(data) {
+    setUserAvatar(data) {
         return this._request(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
